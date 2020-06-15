@@ -13,9 +13,13 @@ resource "aws_s3_bucket" "task-1-s3-bucket" {
   tags = {
     Name        = "task-1-s3-bucket"
   }
+	
+/*
   provisioner "local-exec" {
         command     = "wget https://raw.githubusercontent.com/Harishankar4274/HMC_Task-1/master/images/Harishankar_Dubey.png > /root/HMC_Task-1/s3_cloudfront_launch/certificate.png"
     }
+*/
+		
 provisioner "local-exec" {
         when        =   destroy
         command     =   "echo Y | rm -rf /root/HMC_Task-1/s3_cloudfront_launch/certificate.png"
